@@ -1,11 +1,21 @@
 #include <stdio.h>
 main(){
-    char a[55];
-    scanf("%[^\n]s",a);//한 줄 입력받기 테크닉
-    for(int i=0;a[i];i++){
-        if(a[i]<=63)a[i]-=32;
-        int value=a[i]-196;
-        while(value<0)value+=127;
-        printf("%c",value);
+    int key;
+    char word[55];
+    scanf("%d",&key);//키 입력 받기
+    scanf(" %[^\n]s",word);//한 줄 입력
+    //키가 알파벳을 여러 번 돌게 되면 비효율적이므로 모듈러 연산으로 최적화
+    if(key>=0)key%=26;
+    else key = -((-key)%26);
+    for(int i=0;word[i];i++){
+        if(word[i]==' '){//빈칸은 그냥 출력
+            printf(" ");
+            continue;
+        }
+        int output = word[i]-key; //복호화
+        //벗어났을 때 처리
+        if(output<65)output+=26;
+        else if(output>90)output-=26;
+        printf("%c",output);
     }
 }

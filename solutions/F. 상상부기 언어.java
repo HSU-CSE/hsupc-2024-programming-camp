@@ -5,15 +5,24 @@ import java.io.InputStreamReader;
 public class Main{
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String word = br.readLine();//한줄 입력
-        StringBuilder sb = new StringBuilder();//결과 쌓아놓기
+        int key = Integer.parseInt(br.readLine());
+        String word = br.readLine();
+        StringBuilder sb = new StringBuilder();
+        //모듈러 연산으로 최적화 해준다.
+        if(key>=0)key%=26;
+        else key = -((-key)%26);
         for(int i=0;i<word.length();i++){
-            int value = word.charAt(i);
-            if(value<=63)value-=32;
-            value-=196;
-            while(value<0)value+=127;
-            sb.append((char)value);
+            if(word.charAt(i)== ' ') {
+                sb.append(' ');
+                continue;
+            }
+            int output = word.charAt(i);
+            output-=key;
+            //벗어났을 때 처리
+            if(output<65)output+=26;
+            else if(output>90)output-=26;
+            sb.append((char)output);
         }
-        System.out.println(sb);//한 번에 출력
+        System.out.println(sb);
     }
 }

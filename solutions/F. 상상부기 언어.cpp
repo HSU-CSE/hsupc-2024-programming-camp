@@ -2,18 +2,24 @@
 #define fast ios::sync_with_stdio(0),cin.tie(0)
 #define endl '\n'
 using namespace std;
-/*
-    
- */
-int main() {
+int main(){
     fast;
-    string a;
-    getline(cin,a);//한줄 입력 받기
-    for(int i=0;i<a.size();i++){
-        if(a[i]<=63)a[i]-=32;
-        int value=a[i]-196;
-        while(value<0)value+=127;
-        cout <<(char)value;
+    int key;cin >> key;
+    //모듈러 연산으로 최적화 해준다.
+    if(key>=0)key%=26;
+    else key = -((-key)%26);
+    cin.ignore();//버퍼 한 번 비워주고
+    string word;
+    getline(cin,word);//한줄 입력받기
+    for(int i=0;i<word.size();i++){
+        if(word[i]==' '){
+            cout << ' ';
+            continue;
+        }
+        int output = word[i] - key;
+        if(output<65)output+=26;
+        else if(output>90)output-=26;
+        cout << (char)output;
     }
     return 0;
 }
