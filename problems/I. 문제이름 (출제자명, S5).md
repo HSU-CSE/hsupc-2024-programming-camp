@@ -50,8 +50,8 @@ Number User MODE
 로그를 해석해서 모든 핵 유저를 잡아내자.
 
 ## 입력
-총 로그의 길이 N이 주어진다.
-
+총 로그의 길이 $N$이 주어진다.
+$(1 \leq N \leq 10000)$
 다음 N개의 줄에 번호, 유저 ID, MODE가 입력으로 들어온다.
 
 MODE는 login, roommake, roominto, gamestart, gaming, 총 5가지가 입력으로 들어온다.
