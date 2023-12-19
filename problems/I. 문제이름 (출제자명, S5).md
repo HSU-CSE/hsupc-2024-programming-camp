@@ -54,7 +54,7 @@ Number User MODE
 
 다음 N개의 줄에 번호, 유저 ID, MODE가 입력으로 들어온다.
 
-MODE는 login, roommake, roominto, gamestart, gaming, gamestart 총 6가지가 입력으로 들어온다.
+MODE는 login, roommake, roominto, gamestart, gaming, 총 5가지가 입력으로 들어온다.
 
 ## 출력
 N개의 줄에 걸쳐 들어온 입력 중 핵 사용여부를 판단하여 핵사용 번호와 유저ID를 출력해보자.
