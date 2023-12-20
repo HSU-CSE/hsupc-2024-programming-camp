@@ -12,7 +12,7 @@
 
 ```
 나 사람들 무서워요.
-But 나보다 height 작으면 I am신뢰에요~
+But 나보다 height 작으면 I am신뢰예요~
 ```
 
 <img src="/assets/hansungNyang.png" width="200" height="300">
@@ -45,11 +45,11 @@ But 나보다 height 작으면 I am신뢰에요~
 ```
 30
 7
-30 31 30 38 27 50 60
+30 31 30 38 27 50 25
 ```
 
 ## 예제 출력 2
 
 ```
-3
+4
 ```
