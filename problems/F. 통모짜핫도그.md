@@ -34,6 +34,9 @@ YES
 NO
 YES
 ```
+<center>
+  <img src="/assets/mozza.png">
+</center>
 
 가장 먼저 $k_1$의 예약이 수락된다.
 
