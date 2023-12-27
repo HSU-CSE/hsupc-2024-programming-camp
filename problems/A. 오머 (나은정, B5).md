@@ -6,6 +6,7 @@
 
 ## 문제
 한성대학교의 슬로건 중 하나인 '오고 싶은 대학, 머물고 싶은 대학' 을 영어로 출력하는 프로그램을 작성해보자.  
+오타에 주의하여 문장을 정확히 출력해야 한다.  
 
 ## 출력
 'The university you want to come to, the university you want to stay in' 을 한 줄에 출력한다.  
