@@ -11,7 +11,7 @@
 
 한성냥이를 도와 릴스를 최소 몇 번 촬영해야 하는지 계산해주는 프로그램을 작성하시오.  
 
-<img src="/assets/kkokkokkukku.png">
+<img src="/assets/kkokkokkukku.png" width="200" height="150">
 
 
 
