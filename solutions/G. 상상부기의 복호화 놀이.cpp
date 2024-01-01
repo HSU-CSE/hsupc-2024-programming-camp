@@ -2,6 +2,8 @@
 #define fast ios::sync_with_stdio(0),cin.tie(0)
 #define endl '\n'
 using namespace std;
+
+#1번 풀이
 int main(){
     fast;
     int key;cin >> key;
@@ -21,5 +23,36 @@ int main(){
         else if(output>90)output-=26;
         cout << (char)output;
     }
+    return 0;
+}
+
+
+#2번 풀이
+char Decryption(char src, int key){
+    char ret = src;
+    int repeat = abs(key);
+    while(repeat--){
+        if(key>0)ret--;
+        else ret++;
+        
+        if(ret>90)ret-=26;
+        else if(ret<65)ret+=26;
+    }
+    return ret;
+}
+int main(){
+    fast;
+    int key;
+    string word;cin >> key;
+    cin.ignore();
+    getline(cin,word);
+    for(int i=0;i<word.size();i++){
+        if(word[i] == ' '){
+            cout << ' ';
+            continue;
+        }
+        cout << Decryption(word[i],key);
+    }
+    cout << endl;
     return 0;
 }
