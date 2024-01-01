@@ -1,8 +1,4 @@
-#pragma GCC target("avx,avx2,fma")
-#pragma GCC optimize("Ofast")
-#pragma GCC optimize("unroll-loops")
-#pragma GCC optimize("O3")
-#include<bits/stdc++.h>
+#include<iostream>
 #define fast ios::sync_with_stdio(0),cin.tie(0)
 #define endl '\n'
 using namespace std;
