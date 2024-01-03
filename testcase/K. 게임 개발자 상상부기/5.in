@@ -1,0 +1,6 @@
+5
+0:01 10000 login
+0:02 10000 make AAA
+0:03 9999 login
+0:04 9999 into AAA
+0:05 9999 start AAA
