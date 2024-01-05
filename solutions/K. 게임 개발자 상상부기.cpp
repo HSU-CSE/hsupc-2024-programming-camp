@@ -1,50 +1,34 @@
-#pragma GCC target("avx,avx2,fma")
-#pragma GCC optimize("Ofast")
-#pragma GCC optimize("unroll-loops")
-#pragma GCC optimize("O3")
-#include<bits/stdc++.h>
-#define fast ios::sync_with_stdio(0),cin.tie(0)
+#include <iostream>
+#include <vector>
+#define fast ios::sync_with_stdio(0), cin.tie(0)
 #define endl '\n'
 using namespace std;
 class Room {
 private:
     string title;
-    vector<int>users;
+    vector<int> users;
     int adminId;
+    
 public:
-    Room(string& title, int& id) {
+    Room(string &title, int &id) {
         this->title = title;
         this->adminId = id;
     }
-    int getAdminId() {
-        return adminId;
-    }
-    void setAdminId(int& adminId) {
-        this->adminId = adminId;
-    }
-    string getTitle() {
-        return title;
-    }
-    vector<int>& getUsers() {
-        return users;
-    }
-    void setTitle(string& title) {
-        this->title = title;
-    }
-    void setUsers(vector<int>& users) {
-        this->users = users;
-    }
+    int getAdminId() { return adminId; }
+    void setAdminId(int &adminId) { this->adminId = adminId; }
+    string getTitle() { return title; }
+    vector<int> &getUsers() { return users; }
+    void setTitle(string &title) { this->title = title; }
+    void setUsers(vector<int> &users) { this->users = users; }
 };
 class Manage {
 public:
-    vector<Room>data;
-    Manage() {
-        data.clear();
-    }
-    bool enterRoom(string& title, int& id) {
+    vector<Room> data;
+    Manage() { data.clear(); }
+    bool enterRoom(string &title, int &id) {
         //어느 유저가 어느 방으로 들어가는지
         bool ret = false;
-        for (Room& r : data) {
+        for (Room &r : data) {
             if (r.getTitle() == title) {
                 r.getUsers().push_back(id);
                 ret = true;
@@ -53,17 +37,18 @@ public:
         }
         return ret;
     }
-    int isAlreadyMake(string& title) {//이미 만들어진 적이 있는지 적발
+    int isAlreadyMake(string &title) { //이미 만들어진 적이 있는지 적발
         int index = -1;
         for (int i = 0; i < data.size(); i++) {
-            if (data[i].getTitle()==title) {
+            if (data[i].getTitle() == title) {
                 index = i;
                 break;
             }
         }
         return index;
     }
-    bool gameStart(string& title, int& id) {//어떤 아이가 게임을 시작했는지 중요함
+    bool gameStart(string &title,
+                   int &id) { //어떤 아이가 게임을 시작했는지 중요함
         bool ret = false;
         for (Room r : data) {
             if (r.getTitle() == title) {
@@ -75,11 +60,11 @@ public:
         }
         return ret;
     }
-    bool makeRoom(string& title, int& id) {
-        int index = isAlreadyMake(title);//이미 만들어진 적이 있는지 확인
-        if (index != -1) {//이미 만들어진 적이 있으면 방장만 바꾸자.
-            this -> data[index].setAdminId(id);
-            this -> data[index].getUsers().push_back(id);
+    bool makeRoom(string &title, int &id) {
+        int index = isAlreadyMake(title); //이미 만들어진 적이 있는지 확인
+        if (index != -1) { //이미 만들어진 적이 있으면 방장만 바꾸자.
+            this->data[index].setAdminId(id);
+            this->data[index].getUsers().push_back(id);
             return false;
         }
         Room newRoom(title, id);
@@ -87,7 +72,7 @@ public:
         data.push_back(newRoom);
         return true;
     }
-    bool gameEnd(string& title, int& id) {
+    bool gameEnd(string &title, int &id) {
         bool ret = false;
         vector<Room>::iterator it = data.begin();
         while (it != data.end()) {
@@ -108,36 +93,31 @@ class Error {
 private:
     string time;
     int id;
+    
 public:
-    Error(string& time, int& id) {
+    Error(string &time, int &id) {
         this->time = time;
         this->id = id;
     }
-    int getId() {
-        return id;
-    }
-    string getTime() {
-        return time;
-    }
-    void setId(int& id) {
-        this->id = id;
-    }
-    void setTime(string& time) {
-        this->time = time;
-    }
+    int getId() { return id; }
+    string getTime() { return time; }
+    void setId(int &id) { this->id = id; }
+    void setTime(string &time) { this->time = time; }
 };
-void errorAdd(vector<Error>&errors, Error newError, bool Already[]) {
+void errorAdd(vector<Error> &errors, Error newError, bool Already[]) {
     int id = newError.getId();
-    if (Already[id])return;
+    if (Already[id])
+        return;
     errors.push_back(newError);
     Already[id] = true;
 }
 int main() {
-	fast;
-    vector<Error>errors;
-    bool Numbering[10002]{};//숫자 이미 출력했는지 중복체크
+    fast;
+    vector<Error> errors;
+    bool Numbering[10002]{}; //숫자 이미 출력했는지 중복체크
     Manage manage;
-    int n; cin >> n;
+    int n;
+    cin >> n;
     string title = "";
     for (int i = 0; i < n; i++) {
         string time, mode;
@@ -146,26 +126,25 @@ int main() {
         if (mode[0] == 'm') {
             cin >> title;
             bool flag = manage.makeRoom(title, id);
-            if (!flag)errorAdd(errors, Error(time, id), Numbering);
-        }
-        else if (mode[0] == 'i') {
+            if (!flag)
+                errorAdd(errors, Error(time, id), Numbering);
+        } else if (mode[0] == 'i') {
             cin >> title;
             manage.enterRoom(title, id);
-        }
-        else if (mode[0] == 's') {
+        } else if (mode[0] == 's') {
             cin >> title;
             bool flag = manage.gameStart(title, id);
-            if (flag == 0) {//id 안 맞는 아이가 시작함.
+            if (flag == 0) { // id 안 맞는 아이가 시작함.
                 errorAdd(errors, Error(time, id), Numbering);
             }
-        }
-        else if (mode[0] == 'e') {
+        } else if (mode[0] == 'e') {
             cin >> title;
             bool flag = manage.gameEnd(title, id);
-            if (!flag)errorAdd(errors, Error(time, id), Numbering);
+            if (!flag)
+                errorAdd(errors, Error(time, id), Numbering);
         }
     }
-    for (Error& output : errors) {
+    for (Error &output : errors) {
         cout << output.getTime() << " " << output.getId() << endl;
     }
     return 0;
