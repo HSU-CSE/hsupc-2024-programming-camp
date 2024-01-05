@@ -33,7 +33,7 @@ int main(){
     // 정렬
     qsort(students,m,sizeof(int),compare);
 
-    // 모든 고양이들에 대해서 '착한인간구별공식' 적용
+    // 모든 고양이들의 키에 대해서 '착한인간구별공식' 을 만족하는 학생의 마지막 인덱스 파악
     for(int i=0;i<n;i++){
         int target = cats[i];
         int cnt = upperBound(target,m,students);
