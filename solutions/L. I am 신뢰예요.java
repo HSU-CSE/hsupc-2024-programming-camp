@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 
-#1번 Upper_bound 구현 코드
+// 1번 upperBound 구현 코드
 public class Main {
     static int nextInt(StringTokenizer st){
         return Integer.parseInt(st.nextToken());
     }
-    static int Upper_bound(int target,int[] array,int size){
+    static int upperBound(int target,int[] array,int size){
         int left=0,right = size-1;
         while(left<=right){
             int mid = (left+right)/2;
@@ -31,16 +31,21 @@ public class Main {
 
         int[] cats = new int[n];
         st = new StringTokenizer(br.readLine());
-        for(int i=0;i<n;i++)cats[i] = nextInt(st);
+        
+        for(int i=0;i<n;i++)
+            cats[i] = nextInt(st);
 
         int[] students = new int[m];
         st = new StringTokenizer(br.readLine());
-        for(int i=0;i<m;i++)students[i] = nextInt(st);
+        
+        for(int i=0;i<m;i++)
+            students[i] = nextInt(st);
+        
         Arrays.sort(students);
 
         for(int i=0;i<n;i++){
             int target = cats[i];
-            int cnt = Upper_bound(target,students,m);
+            int cnt = upperBound(target,students,m);
             sb.append(cnt).append(" ");
         }
         System.out.println(sb.toString());
