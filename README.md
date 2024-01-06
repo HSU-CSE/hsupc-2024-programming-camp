@@ -25,7 +25,7 @@
 - 제출 가능 언어는 C99, C++17, Java17로 제한
 - 모든 문제는 표준 입출력을 따름
 - 총 문제는 10문제로, 출제진이 예상하는 난이도의 오름차순으로 배치
-- [언어별 시간 제한 보너스](https://help.acmicpc.net/language/info)는 백준 온라인 저지와 동일
+- [언어별 시간 제한 보너스](https://help.acmicpc.net/language)는 백준 온라인 저지와 동일
 - 문제의 난이도는 solved.ac 기준 Bronze 5 ~ Silver 3 범위 내에 출제
 - 채점 사이트의 아이디는 이름, 비밀번호는 학번
 - 인터넷 사용 가능, 메신저 사용 불가, GPT를 포함한 AI 사용 불가 (Bard, Copilot, Bing ..)
