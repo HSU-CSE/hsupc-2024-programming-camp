@@ -38,6 +38,7 @@
 ## 예제 입력
 
 ```
+4
 int a;
 float c;
 char *str;
