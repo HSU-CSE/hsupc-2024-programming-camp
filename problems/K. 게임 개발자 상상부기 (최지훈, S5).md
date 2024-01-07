@@ -69,7 +69,7 @@ MODE는 login, make, into, start, gaming, end 총 6가지가 있다.
 
 make, into, start, end의 뒤에는 방 이름이 이어서 입력으로 들어온다.
 
-방 이름은 3글자를 넘지 않고, 유저 ID의 범위는 $(1 \leq ID \leq 10000)$ 이며, 시간은 $mm:ss$의 형태로 주어진다.
+방 이름은 3글자를 넘지 않고, 유저 ID의 범위는 $(1 \leq ID \leq 10000)$ 이며, 시간은 $m:ss$의 형태로 주어진다.
 
 $N \times \text{ROOM}^2 \leq 2 * 10^8$ 를 보장한다. 이 때 $\text{ROOM}$은 방의 개수를 의미한다.
 
