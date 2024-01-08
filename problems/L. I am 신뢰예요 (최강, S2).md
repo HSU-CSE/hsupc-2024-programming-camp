@@ -17,7 +17,7 @@
 
 이 공식을 적용하여 각 고양이들이 신뢰할 수 있는 사람의 수를 구해보자!
 
-<img src="/assets/.png" width="200" height="300">
+<img src="/assets/hansungNyang.png" width="200" height="300">
 
 ## 입력
 첫째 줄에 고양이의 수 n과 학생들의 수 m이 주어진다. $(1 \leq n \leq 1,000)$ $(1 \leq m \leq 100,000)$
