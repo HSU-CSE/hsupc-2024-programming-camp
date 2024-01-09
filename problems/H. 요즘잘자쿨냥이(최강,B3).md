@@ -32,10 +32,10 @@
 
 ```
 4 6
-DDHCCD
-CHDZCS
-ECDSDS
-DCEDCC
+D D H C C D
+C H D Z C S
+E C D S D S
+D C E D C C
 ```
 
 ## 예제 출력
@@ -48,8 +48,8 @@ DCEDCC
 
 ```
 2 3
-DCD
-CHC
+D C D
+C H C
 ```
 
 ## 예제 출력 2
