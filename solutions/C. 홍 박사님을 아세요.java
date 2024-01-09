@@ -4,13 +4,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String word = scanner.next();
-        int cnt = 0;
+        int count = 0;
         for (int i = 0; i < word.length(); i++) {
             if (word.charAt(i) == 'H') {
-                cnt++;
+                count++;
             }
         }
-        System.out.println(cnt);
+        System.out.println(count);
         scanner.close();
     }
 }
