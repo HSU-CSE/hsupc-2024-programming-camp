@@ -1,25 +1,19 @@
 #include <stdio.h>
-//1번 풀이
-main() {
-  char word[102];
-  scanf("%s", word);
-  int cnt = 0;
-  for (int i = 0; word[i]; i++) {
-    if (word[i] == 'H') {
-      cnt++;
+
+char word[102];
+
+void solve() {
+    int count = 0;
+    for (int i = 0; word[i]; i++) {
+        if (word[i] == 'H') {
+            count++;
+        }
     }
-  }
-  printf("%d", cnt);
+    printf("%d", count);
 }
 
-//2번 풀이
-
-main() {
-  char word[102];
-  scanf("%s", word);
-  int cnt = 0;
-  for (int i = 0; word[i]; i++) {
-    cnt+=word[i]=='H';
-  }
-  printf("%d", cnt);
+int main() {
+    scanf("%s", word);
+    solve();
+    return 0;
 }

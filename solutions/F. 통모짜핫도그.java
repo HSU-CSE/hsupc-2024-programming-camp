@@ -4,25 +4,32 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
-    static int nextInt(StringTokenizer st){
+    static int nextInt(StringTokenizer st) {
         return Integer.parseInt(st.nextToken());
     }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
         StringBuilder sb = new StringBuilder();
-        sb.append("YES\n");
 
+        int n = Integer.parseInt(br.readLine());
+
+        sb.append("YES\n");
         StringTokenizer st = new StringTokenizer(br.readLine());
         int endPoint = nextInt(st) + nextInt(st);
-        for(int i=0;i<n-1;i++){
+        for (int repeat = 0; repeat < n - 1; repeat++) {
             st = new StringTokenizer(br.readLine());
-            int s=nextInt(st);
-            int b=nextInt(st);
-            if(s>=endPoint)sb.append("YES\n");
-            else sb.append("NO\n");
-            endPoint=Math.max(endPoint,s+b);
+            int s = nextInt(st);
+            int b = nextInt(st);
+            if (s >= endPoint) {
+                sb.append("YES");
+            } else {
+                sb.append("NO");
+            }
+            endPoint = Math.max(endPoint, s + b);
+            sb.append("\n");
         }
-        System.out.println(sb.toString());
+        
+        System.out.println(sb);
     }
 }

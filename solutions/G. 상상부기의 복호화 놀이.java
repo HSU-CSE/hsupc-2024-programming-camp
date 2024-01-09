@@ -2,62 +2,74 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-#1번 풀이
-public class Main{
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int key = Integer.parseInt(br.readLine());
-        String word = br.readLine();
-        StringBuilder sb = new StringBuilder();
+public class Main {
+    static final int ALPHABET_SIZE = 26;
+    static int key;
+    static String word;
+    static StringBuilder sb;
+
+    public static void solve1() {
         //모듈러 연산으로 최적화 해준다.
-        if(key>=0)key%=26;
-        else key = -((-key)%26);
-        for(int i=0;i<word.length();i++){
-            if(word.charAt(i)== ' ') {
+        if (key >= 0) {
+            key = key % ALPHABET_SIZE;
+        } else {
+            key = Math.abs(key) % ALPHABET_SIZE * -1;
+        }
+
+        for (int index = 0; index < word.length(); index++) {
+            if (word.charAt(index) == ' ') {
                 sb.append(' ');
                 continue;
             }
-            int output = word.charAt(i);
-            output-=key;
+            int output = word.charAt(index);
+            output -= key;
             //벗어났을 때 처리
-            if(output<65)output+=26;
-            else if(output>90)output-=26;
-            sb.append((char)output);
+            if (output < 'A') output += ALPHABET_SIZE;
+            else if (output > 'Z') output -= ALPHABET_SIZE;
+            sb.append((char) output);
         }
+
         System.out.println(sb);
     }
-}
 
-#2번 풀이
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class Main{
-    static char Decryption(char src,int key){
+    public static char Decryption(char src, int key) {
         int ret = src;
-        int repeat = Math.abs(key);
-        while(repeat-->0){
-            if(key < 0)ret++;
-            else ret--;
 
-            if(ret>90)ret-=26;
-            else if(ret<65)ret+=26;
+        for (int repeat = 0; repeat < Math.abs(key); repeat++) {
+            if (key < 0) {
+                ret++;
+            } else {
+                ret--;
+            }
+            if (ret > 'Z') {
+                ret -= ALPHABET_SIZE;
+            } else if (ret < 'A') {
+                ret += ALPHABET_SIZE;
+            }
         }
-        return (char)ret;
+
+        return (char) ret;
     }
+
+    public static void solve2() {
+        for (int index = 0; index < word.length(); index++) {
+            if (word.charAt(index) == ' ') {
+                sb.append(' ');
+                continue;
+            }
+            char ret = Decryption(word.charAt(index), key);
+            sb.append(ret);
+        }
+
+        System.out.println(sb);
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int key = Integer.parseInt(br.readLine());
-        String word = br.readLine();
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<word.length();i++){
-            if(word.charAt(i)== ' ') {
-                sb.append(' ');
-                continue;
-            }
-            sb.append(Decryption(word.charAt(i),key));
-        }
-        System.out.println(sb);
+        key = Integer.parseInt(br.readLine());
+        word = br.readLine();
+        sb = new StringBuilder();
+        solve1();
+        br.close();
     }
 }

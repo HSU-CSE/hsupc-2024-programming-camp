@@ -1,58 +1,70 @@
 #include <iostream>
-#define fast ios::sync_with_stdio(0),cin.tie(0)
-#define endl '\n'
-using namespace std;
 
-#1번 풀이
-int main(){
-    fast;
-    int key;cin >> key;
+using namespace std;
+const int ALPHABET_SIZE = 26;
+int key;
+string word;
+
+void solve1() {
     //모듈러 연산으로 최적화 해준다.
-    if(key>=0)key%=26;
-    else key = -((-key)%26);
-    cin.ignore();//버퍼 한 번 비워주고
-    string word;
-    getline(cin,word);//한줄 입력받기
-    for(int i=0;i<word.size();i++){
-        if(word[i]==' '){
+    if (key >= 0) {
+        key = key % ALPHABET_SIZE;
+    } else {
+        key = abs(key) % ALPHABET_SIZE * -1;
+    }
+
+    for (int i = 0; i < word.size(); i++) {
+        if (word[i] == ' ') {
             cout << ' ';
             continue;
         }
         int output = word[i] - key;
-        if(output<65)output+=26;
-        else if(output>90)output-=26;
-        cout << (char)output;
+        if (output < 'A') {
+            output += ALPHABET_SIZE;
+        } else if (output > 'Z') {
+            output -= ALPHABET_SIZE;
+        }
+
+        cout << (char) output;
     }
-    return 0;
 }
 
 
-#2번 풀이
-char Decryption(char src, int key){
-    char ret = src;
-    int repeat = abs(key);
-    while(repeat--){
-        if(key>0)ret--;
-        else ret++;
-        
-        if(ret>90)ret-=26;
-        else if(ret<65)ret+=26;
+char decryption(char src, int key) {
+    int ret = (int) src;
+
+    for (int repeat = 0; repeat < abs(key); repeat++) {
+        if (key > 0) {
+            ret--;
+        } else {
+            ret++;
+        }
+        if (ret > 90) {
+            ret -= ALPHABET_SIZE;
+        } else if (ret < 65) {
+            ret += ALPHABET_SIZE;
+        }
     }
-    return ret;
+
+    return (char) ret;
 }
-int main(){
-    fast;
-    int key;
-    string word;cin >> key;
-    cin.ignore();
-    getline(cin,word);
-    for(int i=0;i<word.size();i++){
-        if(word[i] == ' '){
+
+void solve2() {
+    for (int i = 0; i < word.size(); i++) {
+        if (word[i] == ' ') {
             cout << ' ';
             continue;
         }
-        cout << Decryption(word[i],key);
+        cout << decryption(word[i], key);
     }
     cout << endl;
+}
+
+int main() {
+    ios::sync_with_stdio(false), cin.tie(nullptr);
+    cin >> key;
+    cin.ignore();
+    getline(cin, word);
+    solve1();
     return 0;
 }

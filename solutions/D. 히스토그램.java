@@ -2,27 +2,30 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
-        int n = s.nextInt();
+        int n = scanner.nextInt();
         int[] array = new int[n];
+        
         int maxHeight = 0;
-        for(int i=0;i<n;i++){
-            array[i] = s.nextInt();
-            maxHeight = Math.max(maxHeight,array[i]);
+        for (int index = 0; index < n; index++) {
+            array[index] = scanner.nextInt();
+            maxHeight = Math.max(maxHeight, array[index]);
         }
 
-        for(int height = maxHeight; height>0;height--){
-            for(int index=0;index<n;index++){
-                String output = " ";
-                if(array[index]>=height){
-                    output = array[index] + "";
+        for (int height = maxHeight; height >= 1; height--) {
+            for (int index = 0; index < n; index++) {
+                String output;
+                if (array[index] >= height) {
+                    output = String.valueOf(array[index]);
+                } else {
+                    output = " ";
                 }
                 sb.append(output);
             }
             sb.append("\n");
         }
-        System.out.println(sb.toString());
-        s.close();
+        System.out.println(sb);
+        scanner.close();
     }
 }

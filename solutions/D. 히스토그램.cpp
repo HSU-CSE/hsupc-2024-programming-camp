@@ -1,28 +1,36 @@
 #include<iostream>
 #include<vector>
-#define fast ios::sync_with_stdio(0),cin.tie(0)
-#define endl '\n'
 
 using namespace std;
-int main(){
-    fast;
-    int n; cin >> n;
-    vector<int>array(n);
-    int max_height=0;
-    for(auto&index:array){
-        cin >>index;
-        max_height=max(max_height,index);
+
+int N;
+vector<int> Array;
+
+void solve() {
+    int max_height = 0;
+    for (int index = 0; index < N; index++) {
+        cin >> Array[index];
+        max_height = max(max_height, Array[index]);
     }
-    
-    for(int height = max_height;height>0;height--){
-        for(auto value:array){
-            char output = ' ';
-            if(value>=height)output = value + '0';
+
+    for (int height = max_height; height >= 1; height--) {
+        for (int index = 0; index < N; index++) {
+            char output;
+            if (Array[index] >= height) {
+                output = (char) (Array[index] + '0');
+            } else {
+                output = ' ';
+            }
             cout << output;
         }
         cout << endl;
     }
+}
 
-    
-    
+int main() {
+    ios::sync_with_stdio(false), cin.tie(nullptr);
+    cin >> N;
+    Array.resize(N);
+    solve();
+    return 0;
 }
