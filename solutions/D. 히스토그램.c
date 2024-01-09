@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define max(a, b) (a>b ? a:b)
+#define max(a, b) (a > b ? a : b)
 
 int n;
 int array[17];
@@ -12,7 +12,7 @@ void solve() {
         scanf("%d", &array[i]);
         max_height = max(max_height, array[i]);
     }
-    
+
     for (int height = max_height; height >= 1; height--) {
         for (int index = 0; index < n; index++) {
             char output;
