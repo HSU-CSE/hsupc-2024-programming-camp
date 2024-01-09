@@ -1,7 +1,7 @@
 # 2024 동계 프로그래밍 캠프 대회
 
-- [문제지 PDF](docs/programming-camp-2024-problemset.pdf)
-- [에디토리얼 PDF](docs/programming-camp-2024-editorial.pdf)
+- [문제지 PDF](docs/programming_camp_2024_problemset.pdf)
+- [에디토리얼 PDF](docs/programming_camp_2024_editorial.pdf)
 - [정답 코드](https://github.com/HSU-CSE/hsupc-2023-programming-camp/tree/main/solutions)
 
 ![image](/assets/image.png)
