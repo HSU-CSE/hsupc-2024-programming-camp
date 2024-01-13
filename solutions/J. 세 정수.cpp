@@ -22,10 +22,8 @@ int solve2(int n) {
 }
 
 int solve3(int n) {
-    int answer = (2 * n + 1) * (2 * n + 1);
-    int tmp = n / 2;
-    answer += 2 * ((tmp * (2 * n + 1)) - (tmp * (tmp + 1) / 2));
-    return answer;
+    int sum = (n / 2 * (2 * n + 1)) - (n / 2 * (n / 2 + 1) / 2);
+    return 2 * sum + (2 * n + 1) * (2 * n + 1);
 }
 
 int main() {
