@@ -7,8 +7,8 @@ int main() {
     int count = 0;
     for (int r = 0; r < n; r++) {
         for (int c = 0; c < m; c++) {
-            char customer, buffer;
-            scanf("%c%c", &customer, &buffer);
+            char customer;
+            scanf(" %c", &customer);
             if (customer == 'C') {
                 count++;
             }
