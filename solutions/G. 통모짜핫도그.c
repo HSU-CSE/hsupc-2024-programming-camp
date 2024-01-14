@@ -1,22 +1,20 @@
 #include <stdio.h>
-
-#define max(a, b) (a > b ? a : b)
-
 int main() {
     int n, s, d;
     scanf("%d", &n);
-    scanf("%d %d", &s, &d);
-
-    printf("YES\n");
-    int answer = 1;
-    int end_point = s + d;
-    for (int index = 0; index < n - 1; index++) {
+    int answer = 0;
+    int end_point = -1;
+    for (int index = 0; index < n; index++) {
         scanf("%d %d", &s, &d);
-        if (s >= end_point) {
+	if (index == 0){
+	    end_point = s + d;
+	    answer ++;
+	}
+        else if (s >= end_point) {
             answer ++;
+	    end_point = s + d;
         }
-        end_point = max(end_point, s + d);
     }
-
+    printf("%d", answer);
     return 0;
 }
