@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int cats[1002];
+int cats[100002];
 int students[100002];
 
 int compare(void *a, void *b) {
@@ -20,7 +20,7 @@ int upperBound(int target, int size, const int array[]) {
             left = mid + 1;
         }
     }
-    
+
     return left;
 }
 
