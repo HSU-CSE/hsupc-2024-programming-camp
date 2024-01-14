@@ -1,18 +1,21 @@
 #include <iostream>
+
 using namespace std;
 
 bool solve(string s) {
     char post = s[0];
     for (int i = 1; i < s.length(); i++) {
         char cur = s[i];
+        
         int diff = cur - post;
         if (diff < 0) diff += 7;
         if (diff != 2 && diff != 4 && diff != 6) {
-            return false;
+            return true;
         }
+        
         post = cur;
     }
-    return true;
+    return false;
 }
 
 int main() {
