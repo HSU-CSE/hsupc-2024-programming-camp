@@ -18,16 +18,15 @@ public class Main {
                     continue;
                 }
                 else{
-                    int dif = pre > cur ? (cur + 8) - pre : cur - pre;
-                    if(dif == 2 || dif == 4 || dif == 6);
-                    else{
+                    int dif = pre > cur ? (cur + 7) - pre : cur - pre;
+                    if(dif != 2 && dif != 4 && dif != 6){
                         flag = false;
                         break;
                     }
                 }
                 pre = cur;
             }
-            if(flag) answer ++;
+            if(!flag) answer ++;
         }
         System.out.println(answer);
     }
