@@ -1,34 +1,29 @@
 #include <stdio.h>
 
-int solve(string s) {
-    char post = s[0];
-    for (int i = 1; i < s.length(); i++) {
-        char cur = s[i];
-        
-        int diff = cur - post;
-        if (diff < 0) diff += 7;
-        if (diff != 2 && diff != 4 && diff != 6) {
-            return 1;
-        }
-        
-        post = cur;
-    }
-    return 0;
-}
-
 int main() {
-    int N;
-    cin >> N;
+    int n;
+    scanf("%d", &n);
 
     int answer = 0;
-    for (int i = 1; i <= N; i++) {
-        string s;
-        cin >> s;
-        if (solve(s)==1) {
-            answer++;
+    for (int i = 0; i < n; i++) {
+        char input[101];
+        scanf("%s", input);
+
+        char post = input[0];
+        for (int j = 1; input[j] != '\0'; j++) {
+            char cur = input[j];
+
+            int diff = cur - post;
+            if (diff < 0) diff += 7;
+            if (diff != 2 && diff != 4 && diff != 6) {
+                answer++;
+                break;
+            }
+
+            post = cur;
         }
     }
-    cout << answer;
+    printf("%d", answer);
 
     return 0;
 }
