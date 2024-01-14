@@ -8,13 +8,12 @@ int main() {
     scanf("%d %d", &s, &d);
 
     printf("YES\n");
+    int answer = 1;
     int end_point = s + d;
     for (int index = 0; index < n - 1; index++) {
         scanf("%d %d", &s, &d);
         if (s >= end_point) {
-            printf("YES\n");
-        } else {
-            printf("No\n");
+            answer ++;
         }
         end_point = max(end_point, s + d);
     }
