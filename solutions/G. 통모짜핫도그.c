@@ -1,20 +1,24 @@
-#include <stdio.h>
+#include<iostream>
+
+using namespace std;
+
 int main() {
+    ios::sync_with_stdio(false), cin.tie(nullptr);
     int n, s, d;
-    scanf("%d", &n);
+    cin >> n;
     int answer = 0;
-    int end_point = -1;
-    for (int index = 0; index < n; index++) {
-        scanf("%d %d", &s, &d);
-	if (index == 0){
-	    end_point = s + d;
+    int end_point = s + d;
+    for (int i = 0; i < n; i++) {
+        cin >> s >> d;
+	if (i == 0){
 	    answer ++;
+	    end_point = s + d;
 	}
-        else if (s >= end_point) {
+       else if(s >= end_point) {
             answer ++;
 	    end_point = s + d;
         }
     }
-    printf("%d", answer);
+    cout << answer << endl;
     return 0;
 }
