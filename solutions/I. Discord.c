@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-bool solve(string s) {
+int solve(string s) {
     char post = s[0];
     for (int i = 1; i < s.length(); i++) {
         char cur = s[i];
@@ -8,12 +8,12 @@ bool solve(string s) {
         int diff = cur - post;
         if (diff < 0) diff += 7;
         if (diff != 2 && diff != 4 && diff != 6) {
-            return true;
+            return 1;
         }
         
         post = cur;
     }
-    return false;
+    return 0;
 }
 
 int main() {
@@ -24,7 +24,7 @@ int main() {
     for (int i = 1; i <= N; i++) {
         string s;
         cin >> s;
-        if (solve(s)) {
+        if (solve(s)==1) {
             answer++;
         }
     }
