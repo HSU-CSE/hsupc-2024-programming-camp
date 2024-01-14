@@ -6,19 +6,19 @@ int main() {
     ios::sync_with_stdio(false), cin.tie(nullptr);
     int n, s, d;
     cin >> n;
-    cin >> s >> d;
-
-    cout << "YES" << endl;
+    int answer = 0;
     int end_point = s + d;
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> s >> d;
-        if (s >= end_point) {
-            cout << "YES" << endl;
-        } else {
-            cout << "NO" << endl;
+	if (i == 0){
+	    answer ++;
+	    end_point = s + d;
+	}
+       else if(s >= end_point) {
+            answer ++;
+	    end_point = s + d;
         }
-        end_point = max(end_point, s + d);
     }
-    
+    cout << answer << endl;
     return 0;
 }

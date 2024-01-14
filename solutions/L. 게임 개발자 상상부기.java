@@ -79,20 +79,24 @@ public class Main {
             int user = Integer.parseInt(log.nextToken());
             String mode = log.nextToken();
             switch (mode) {
-                case "make" -> {
+                case "make": {
                     title = log.nextToken();
                     is_valid = make(title, user);
+                    break;
                 }
-                case "start" -> {
+                case "start": {
                     title = log.nextToken();
                     is_valid = start(title, user);
+                    break;
                 }
-                case "into" -> {
+                case "into": {
                     title = log.nextToken();
+                    break;
                 }
-                case "end" -> {
+                case "end": {
                     title = log.nextToken();
                     is_valid = end(title, user);
+                    break;
                 }
             }
             if (!is_valid) {

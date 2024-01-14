@@ -11,7 +11,7 @@ public class Main {
             int start = sc.nextInt();
             int end = sc.nextInt();
             if(i == 0){
-                endTime = end;
+                endTime = end + start;
                 answer ++;
             }
             else{
