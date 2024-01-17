@@ -60,7 +60,7 @@ void solve2() {
 
 int main() {
     scanf("%d", &key);  // 키 입력 받기
-    scanf("%[^\n]", word);  // 한 줄 입력
+    scanf("% [^\n]", word);  // 한 줄 입력
     solve1();
     return 0;
 }
